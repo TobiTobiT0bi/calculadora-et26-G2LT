@@ -11,54 +11,73 @@
 </head>
 
 <body>
+    <button onclick="location.href='calculadora.html'"> Volver a la calculadora </button>
     <p>
-        <input type="radio" id="femenino" value="F" />
+        <input type="radio" name="condicion" id="femenino" value="F">
         <label for="femenino">
             Femenino
         </label>
     </p>
     <p>
-        <input type="radio" id="masculino" value="M" />
+        <input type="radio" name="condicion" id="masculino" value="M">
         <label for="masculino">
             Masculino
         </label>
     </p>
     <p>
-        <input type="radio" id="empresa" value="E" />
+        <input type="radio" name="condicion" id="empresa" value="E">
         <label for="empresa">
             Empresa
         </label>
     </p>
-
-    <input type="number" id="dni" placeholder="Número de documento">
-    <input type="button" value="hola" onclick="cuil()">
+    <p>
+        DNI: <input type="text" id="dni">
+    </p>
+    <p>
+        <input type="button" value="Calcular CUIL/CUID" onclick="cuil()">
+    </p>
 
     <script>
         function cuil() {
+            if (document.getElementById("femenino").checked) {
+                var enti = 27;
+            }
+            else if (document.getElementById("masculino").checked) {
+                var enti = 20;
+            }
+            else if (document.getElementById("empresa").checked) {
+                var enti = 30;
+            }
+
             var mult = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
-            var dni = Array.from(String(document.getElementById(dni)));
+            //var dni = String(enti);
+            var dni = Array.from(String(enti) + String( document.getElementById("dni").value ));
             var sum = 0;
-            var enti = document.getElementsById("condicion");
-
-            var radios = document.getElementsByName('contact');
-            for (var radio of radios) {
-                if (radio.checked) {
-                    alert(radio.value);
-                }
+            var tot = 0;
+            var lastNum = 0;
+            var lol = [];
+            
+            for(i = 0; i < 10; i++){
+                sum = dni[i] * mult[i];
+                tot = tot + sum;
+                lol[i] = tot;
             }
-
-
-            console.log(enti);
-            console.log(Array.from(dni));
-
-            for (i = 0; i <= 8; i++) {
-                sum = mult[i] * parseInt(dni[i]);
-                sum = sum + sum;
-                console.log(parseInt(dni[i]));
+            tot = tot/11;
+            tot = Number(tot.toFixed(1));
+            tot = Array.from(String(tot));
+            if(tot.length < 3){
+                tot[2] = "."; 
+                tot[3] = 0;
             }
-            console.log(sum);
+            
+            lastNum = (11-tot[3]);
+            dni.push(lastNum);
+            alert("Su DNI es : " + dni[0] + dni[1] + "-" + String( document.getElementById("dni").value ) + "-" + lastNum);
+            
         }
     </script>
+
+
 </body>
 
 </html>
