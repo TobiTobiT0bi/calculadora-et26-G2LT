@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculdora</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <p>
+        <input type="radio" id="femenino" value="F" />
+        <label for="femenino">
+            Femenino
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="masculino" value="M" />
+        <label for="masculino">
+            Masculino
+        </label>
+    </p>
+    <p>
+        <input type="radio" id="empresa" value="E" />
+        <label for="empresa">
+            Empresa
+        </label>
+    </p>
+
+    <input type="number" id="dni" placeholder="Número de documento">
+    <input type="button" value="hola" onclick="cuil()">
+
+    <script>
+        function cuil() {
+            var mult = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+            var dni = Array.from(String(document.getElementById(dni)));
+            var sum = 0;
+            var enti = document.getElementsById("condicion");
+
+            var radios = document.getElementsByName('contact');
+            for (var radio of radios) {
+                if (radio.checked) {
+                    alert(radio.value);
+                }
+            }
+
+
+            console.log(enti);
+            console.log(Array.from(dni));
+
+            for (i = 0; i <= 8; i++) {
+                sum = mult[i] * parseInt(dni[i]);
+                sum = sum + sum;
+                console.log(parseInt(dni[i]));
+            }
+            console.log(sum);
+        }
+    </script>
+</body>
+
+</html>
