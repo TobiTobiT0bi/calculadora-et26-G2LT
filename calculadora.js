@@ -28,7 +28,7 @@ botonigual.addEventListener('click', function () {
 });
 
 botonborrar.addEventListener('click', function () {
-    clear();
+    //clear();
     actualizardisplay();
 });
 
@@ -66,19 +66,19 @@ function calcular() {
             calculo = Math.tan(actual);
             break;
         case 'CoTan':
-            calculo = Math.atan(actual);;
+            calculo = Math.atan(actual);
             break;
         case 'Cos':
-            calculo = Math.cos(actual);;
+            calculo = Math.cos(actual);
             break;
         case 'CoCos':
-            calculo = Math.acos(actual);;
+            calculo = Math.acos(actual);
             break;
         case 'Sen':
-            calculo = Math.sen(actual);;
+            calculo = Math.sen(actual);
             break;
         case 'CoSen':
-            calculo = Math.asen(actual);;
+            calculo = Math.asen(actual);
             break;
         ////////////////////////////////////////////////////
         case '!':
@@ -106,17 +106,17 @@ function agregarnumero(num) {
     actualizardisplay();
 }
 
-function clear() {
+/* function clear() {
     opactual = '';
     opanterior = '';
     operacion = undefined;
-}
+} */
 
 function actualizardisplay() {
     display.value = opactual;
 }
 
-clear();
+//clear();
 
 
 
