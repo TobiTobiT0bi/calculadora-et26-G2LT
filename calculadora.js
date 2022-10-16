@@ -28,7 +28,7 @@ botonigual.addEventListener('click', function () {
 });
 
 botonborrar.addEventListener('click', function () {
-    //clear();
+    clear();
     actualizardisplay();
 });
 
@@ -106,17 +106,17 @@ function agregarnumero(num) {
     actualizardisplay();
 }
 
-/* function clear() {
+function clear() {
     opactual = '';
     opanterior = '';
     operacion = undefined;
-} */
+} 
 
 function actualizardisplay() {
     display.value = opactual;
 }
 
-//clear();
+clear();
 
 
 
