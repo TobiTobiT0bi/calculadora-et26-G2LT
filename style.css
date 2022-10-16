@@ -1,7 +1,19 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: rgb(116, 238, 201);
+    background-color: rgb(129, 131, 224);
+}
+
+
+.miembros {
+    float: right;
+    font-size: larger;
+    padding: 5px;
+    margin: 0px;
+    margin-top: 15px;
+    height: 250px;
+    width: 160px;
+    background-color: rgb(156, 241, 167);
 }
 
 .calculadorapaneles {
@@ -60,4 +72,9 @@ body {
 
 .oculto {
     display: none;
+}
+
+.formu-cuil{
+    font-size: x-large;
+
 }

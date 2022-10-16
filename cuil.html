@@ -6,37 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-    <button onclick="location.href='calculadora.html'"> Volver a la calculadora </button>
-    <p>
-        <input type="radio" name="condicion" id="femenino" value="F">
-        <label for="femenino">
-            Femenino
-        </label>
-    </p>
-    <p>
-        <input type="radio" name="condicion" id="masculino" value="M">
-        <label for="masculino">
-            Masculino
-        </label>
-    </p>
-    <p>
-        <input type="radio" name="condicion" id="empresa" value="E">
-        <label for="empresa">
-            Empresa
-        </label>
-    </p>
-    <p>
-        DNI: <input type="text" id="dni">
-    </p>
-    <p>
-        <input type="button" value="Calcular CUIL/CUID" onclick="cuil()">
-    </p>
+    <div class="miembros">
+        <p> Luca Folco </p>
+        <p> Tobias Coman </p>
+        <p> Gaspar Kappou </p>
+        <p> Luis Oviedo </p>
+    </div>
 
+    <div class="formu-cuil">
+        <button onclick="location.href='calculadora.html'"> Volver a la calculadora </button>
+        <p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="condicion" id="femenino" value="F">
+            <label class="form-check-label" for="femenino">
+                Femenino
+            </label>
+        </div>
+
+        </p>
+        <p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="condicion" id="masculino" value="M">
+            <label class="form-check-label" for="masculino">
+                Masculino
+            </label>
+        </div>
+        </p>
+        <p>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="condicion" id="empresa" value="E">
+            <label class="form-check-label" for="empresa">
+                Empresa
+            </label>
+        </div>
+
+        </p>
+        <p>
+            DNI: <input type="text" id="dni">
+        </p>
+        <p>
+            <input type="button" value="Calcular CUIL/CUID" onclick="cuil()">
+        </p>
+    </div>
     <script>
         function cuil() {
             if (document.getElementById("femenino").checked) {
@@ -51,29 +69,29 @@
 
             var mult = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
             //var dni = String(enti);
-            var dni = Array.from(String(enti) + String( document.getElementById("dni").value ));
+            var dni = Array.from(String(enti) + String(document.getElementById("dni").value));
             var sum = 0;
             var tot = 0;
             var lastNum = 0;
             var lol = [];
-            
-            for(i = 0; i < 10; i++){
+
+            for (i = 0; i < 10; i++) {
                 sum = dni[i] * mult[i];
                 tot = tot + sum;
                 lol[i] = tot;
             }
-            tot = tot/11;
+            tot = tot / 11;
             tot = Number(tot.toFixed(1));
             tot = Array.from(String(tot));
-            if(tot.length < 3){
-                tot[2] = "."; 
+            if (tot.length < 3) {
+                tot[2] = ".";
                 tot[3] = 0;
             }
-            
-            lastNum = (11-tot[3]);
+
+            lastNum = (11 - tot[3]);
             dni.push(lastNum);
-            alert("Su DNI es : " + dni[0] + dni[1] + "-" + String( document.getElementById("dni").value ) + "-" + lastNum);
-            
+            alert("Su DNI es : " + dni[0] + dni[1] + "-" + String(document.getElementById("dni").value) + "-" + lastNum);
+
         }
     </script>
 
